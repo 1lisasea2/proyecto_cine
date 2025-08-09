@@ -16,7 +16,7 @@ from nltk.tokenize import word_tokenize # Se usa para dividir un texto en palabr
 from nltk.corpus import wordnet # Nos ayuda a encontrar sinonimos de palabras. 
 
 # Indicamos la ruta donde NLTK buscará los datos descargados en nuestro computador. 
-nltk.data.path.append('C:\Users\abaenaa\AppData\Roaming\nltk_data')
+nltk.data.path.append(r'C:\Users\abaenaa\AppData\Roaming\nltk_data')
 
 # Descargamos las herramientas necesarias de NLTK para el análisis de palabras.
 
@@ -27,7 +27,7 @@ nltk.download('wordnet') # Paquete para encontrar sinonimos de palabras en ingl�
 
 def load_movies():
     # Leemos el archivo que contiene información de películas y seleccionamos las columnas más importantes
-    df = pd.read_csv("Dataset/netflix_titles.csv")[['show_id', 'title', 'release_year', 'listed_in', 'rating', 'description']]
+    df = pd.read_csv(r"DataSet/netflix_titles.csv")[['show_id', 'title', 'release_year', 'listed_in', 'rating', 'description']]
     
     # Renombramos las columnas para que sean más faciles de entender
     df.columns = ['id', 'title', 'year', 'category', 'rating', 'overview']
@@ -46,7 +46,7 @@ def get_synonyms(word):
 
 # Creamos la aplicación FastAPI, que será el motor de nuestra API
 # Esto inicializa la API con un nombre y una versión
-app = FastAPI(title="Mi aplicación de Películas", version="1.0.0")
+app = FastAPI(title="Mi aplicación de Peliculas", version="1.0.0")
 
 # Ruta de inicio: Cuando alguien entra a la API sin especificar nada, verá un mensaje de bienvenida.
 
